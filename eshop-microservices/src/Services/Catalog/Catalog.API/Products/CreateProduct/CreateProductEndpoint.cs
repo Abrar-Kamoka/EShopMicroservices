@@ -9,7 +9,6 @@ namespace Catalog.API.Products.CreateProduct
     {
         public void AddRoutes(IEndpointRouteBuilder app)
         {
-            // 6-1 completted
             app.MapPost("/products",
                 async (CreateProductRequest request, ISender sender) =>
                 {
@@ -18,7 +17,7 @@ namespace Catalog.API.Products.CreateProduct
                     var response = result.Adapt<CreateProductResponse>();
 
                     return Results.Created($"/products/{response.Id}", response);
-                })
+            })
                 .WithName("CreateProduct")
                 .WithSummary("Create a new product")
                 .WithDescription("Create Product Description")
